@@ -1,34 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import { Canvas } from '@react-three/fiber'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div id="canvas-container" className='w-[100vw] h-[100vh]'>
+      <Canvas camera={{position: [3,3,5]}}>
+        <mesh>
+          {/* <boxGeometry args={[2,2.5,2]} />
+          <sphereGeometry args={[2,2.5,2]} /> */}
+          <torusKnotGeometry args={[1.7,0.3,256,256]} />
+          <meshPhongMaterial color="gold" />
+          <directionalLight position={[2,5,1]}/>
+        </mesh>
+      </Canvas>
+    </div>
   )
 }
 
