@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import type { Rotate } from './types'
 import { useControls } from 'leva';
 
-export default function AnimatedBox() {
+const AnimatedBox = () => {
     const boxRef = useRef<Rotate>({ rotation: { x: 0, y: 0, z: 0 } });
 
     const { speed, color } = useControls({
@@ -30,3 +30,5 @@ export default function AnimatedBox() {
         </mesh>
     )
 }
+
+export default AnimatedBox;
